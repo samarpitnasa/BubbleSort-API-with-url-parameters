@@ -1,7 +1,7 @@
-from django.conf.urls import url
+import django.conf.urls
 from django.contrib import admin
 from apiwithparaapp import views
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^bubblesort/?', views.bubblesort)
+    django.conf.urls.url(r'^admin/', admin.site.urls),
+    django.conf.urls.url(r'^bubblesort/?', views.get)
 ]

@@ -8,18 +8,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework import status
+from models import bubblesort
 import json
-from rest_framework.decorators import api_view
-def bubblesort(request):
+#xyz=bubblesortModel()
+def get(request):
     lst=request.GET['listofno']
     a=lst.split(",")
-    print (a)
-    n = len(a)
-    for i in range(n):
-        for j in range(0, n - i - 1):
-            if a[j] > a[j + 1]:
-                a[j], a[j + 1] = a[j + 1], a[j]
-    template=[]
-    for x in a:
+    b=bubblesort(a)
+    template = []
+    for x in b:
         template.append(x)
     return HttpResponse(json.dumps(template), content_type='application/json')
